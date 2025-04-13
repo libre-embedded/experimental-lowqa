@@ -1,12 +1,12 @@
 <!--
     =====================================
     generator=datazen
-    version=3.1.4
-    hash=82c7ff5f1198788a93c3f711bb428740
+    version=3.2.0
+    hash=a7d3a91c60f233823841981bd5a257bd
     =====================================
 -->
 
-# experimental-lowqa ([0.1.4](https://pypi.org/project/experimental-lowqa/))
+# experimental-lowqa ([0.1.5](https://pypi.org/project/experimental-lowqa/))
 
 [![python](https://img.shields.io/pypi/pyversions/experimental-lowqa.svg)](https://pypi.org/project/experimental-lowqa/)
 ![Build Status](https://github.com/vkottler/experimental-lowqa/workflows/Python%20Package/badge.svg)

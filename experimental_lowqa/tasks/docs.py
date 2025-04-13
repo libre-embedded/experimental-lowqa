@@ -51,7 +51,7 @@ class SphinxTask(SubprocessLogMixin):
                 "-t",
                 str(templates),
                 "-A",
-                f"\"{kwargs.get('author', 'Vaughn Kottler')}\"",
+                f"\"{kwargs.get('author', 'Libre Embedded')}\"",
                 "-f",
                 "-F",
                 "-o",
