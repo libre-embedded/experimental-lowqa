@@ -1,29 +1,22 @@
 <!--
     =====================================
     generator=datazen
-    version=3.2.0
-    hash=a7d3a91c60f233823841981bd5a257bd
+    version=3.2.1
+    hash=05ff9a6771d7ddaef5de32b5690792be
     =====================================
 -->
 
-# experimental-lowqa ([0.1.5](https://pypi.org/project/experimental-lowqa/))
+# experimental-lowqa ([0.1.6](https://pypi.org/project/experimental-lowqa/))
 
 [![python](https://img.shields.io/pypi/pyversions/experimental-lowqa.svg)](https://pypi.org/project/experimental-lowqa/)
-![Build Status](https://github.com/vkottler/experimental-lowqa/workflows/Python%20Package/badge.svg)
-[![codecov](https://codecov.io/gh/vkottler/experimental-lowqa/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/github/vkottler/experimental-lowqa)
+![Build Status](https://github.com/libre-embedded/experimental-lowqa/workflows/Python%20Package/badge.svg)
+[![codecov](https://codecov.io/gh/libre-embedded/experimental-lowqa/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/github/libre-embedded/experimental-lowqa)
 ![PyPI - Status](https://img.shields.io/pypi/status/experimental-lowqa)
 ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/experimental-lowqa)
 
 *Read the sign.*
 
-## Documentation
-
-### Generated
-
-* By [sphinx-apidoc](https://vkottler.github.io/python/sphinx/experimental-lowqa)
-(What's [`sphinx-apidoc`](https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html)?)
-* By [pydoc](https://vkottler.github.io/python/pydoc/experimental_lowqa.html)
-(What's [`pydoc`](https://docs.python.org/3/library/pydoc.html)?)
+([interface documentation](https://libre-embedded.github.io/python/experimental-lowqa))
 
 ## Python Version Support
 
