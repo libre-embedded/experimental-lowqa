@@ -1,7 +1,7 @@
 # =====================================
 # generator=datazen
-# version=3.2.0
-# hash=f28fd2fab31d05e173ec35cafb234861
+# version=3.2.1
+# hash=b4438fdc00e01a0f0108270b2e1bb03a
 # =====================================
 
 """
@@ -10,4 +10,4 @@ Useful defaults and other package metadata.
 
 DESCRIPTION = "Read the sign."
 PKG_NAME = "experimental-lowqa"
-VERSION = "0.1.5"
+VERSION = "0.1.6"

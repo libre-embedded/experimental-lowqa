@@ -1,7 +1,7 @@
 # =====================================
 # generator=datazen
-# version=3.2.0
-# hash=29f345c5b752a50f363dcc12bf1d0576
+# version=3.2.1
+# hash=df0668e3256561dddbd442ed36f45959
 # =====================================
 
 """
@@ -18,9 +18,9 @@ except (ImportError, ModuleNotFoundError):
 from experimental_lowqa import DESCRIPTION, PKG_NAME, VERSION
 
 author_info = {
-    "name": "Vaughn Kottler",
+    "name": "Libre Embedded",
     "email": "vaughn@libre-embedded.com",
-    "username": "vkottler",
+    "username": "libre-embedded",
 }
 pkg_info = {
     "name": PKG_NAME,
