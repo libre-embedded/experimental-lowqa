@@ -2,11 +2,11 @@
     =====================================
     generator=datazen
     version=3.2.1
-    hash=05ff9a6771d7ddaef5de32b5690792be
+    hash=482f269600ebb7a95e82af57442ad86c
     =====================================
 -->
 
-# experimental-lowqa ([0.1.6](https://pypi.org/project/experimental-lowqa/))
+# experimental-lowqa ([0.1.7](https://pypi.org/project/experimental-lowqa/))
 
 [![python](https://img.shields.io/pypi/pyversions/experimental-lowqa.svg)](https://pypi.org/project/experimental-lowqa/)
 ![Build Status](https://github.com/libre-embedded/experimental-lowqa/workflows/Python%20Package/badge.svg)
@@ -15,6 +15,8 @@
 ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/experimental-lowqa)
 
 *Read the sign.*
+
+Consider [sponsoring development](https://github.com/sponsors/libre-embedded).
 
 ([interface documentation](https://libre-embedded.github.io/python/experimental-lowqa))
 
