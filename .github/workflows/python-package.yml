@@ -76,7 +76,7 @@ jobs:
 
       - run: |
           mk python-release owner=libre-embedded \
-                            repo=experimental-lowqa version=0.1.8
+                            repo=experimental-lowqa version=0.1.9
         if: |
           matrix.python-version == '3.12'
           && matrix.system == 'ubuntu-latest'

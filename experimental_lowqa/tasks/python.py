@@ -48,6 +48,8 @@ class PythonTags(GenerateTags):
             "runtimepy",
             "svgen",
             "experimental-lowqa",
+            "quasimoto",
+            "gnomish-army-knife",
         ]:
             if root.name != candidate:
                 self.extra_source_candidates.append(
