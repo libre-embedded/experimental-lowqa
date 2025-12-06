@@ -3,6 +3,8 @@ A module implementing interfaces for prompting the user for input.
 """
 
 # built-in
+import asyncio
+import functools
 from typing import Dict, Iterable, NamedTuple, Optional
 
 
@@ -52,6 +54,22 @@ class SelectOpts(NamedTuple):
 def boolean_select(label: str, **kwargs) -> bool:
     """Provide a boolean select prompt."""
     return manual_select(label, ["y", "n"], **kwargs) == "y"
+
+
+async def async_boolean_select(label: str, **kwargs) -> bool:
+    """Provide a boolean select prompt."""
+    return await async_manual_select(label, ["y", "n"], **kwargs) == "y"
+
+
+async def async_manual_select(
+    label: str, options: Iterable[str], **kwargs
+) -> Optional[str]:
+    """
+    Prompt the user until an option from the provided set of options is chosen.
+    """
+    return await asyncio.get_running_loop().run_in_executor(
+        None, functools.partial(manual_select, label, options, **kwargs)
+    )
 
 
 def manual_select(
