@@ -49,6 +49,11 @@ class SelectOpts(NamedTuple):
     descriptions: Optional[Dict[str, str]] = None
 
 
+def boolean_select(label: str, **kwargs) -> bool:
+    """Provide a boolean select prompt."""
+    return manual_select(label, ["y", "n"], **kwargs) == "y"
+
+
 def manual_select(
     label: str,
     options: Iterable[str],
