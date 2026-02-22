@@ -49,7 +49,7 @@ jobs:
         env:
           PY_LINT_MYPY_EXTRA_ARGS: --no-incremental
 
-      - run: mk docs
+      - run: mk docs version=0.1.11
         if: |
           matrix.python-version == '3.13'
           && matrix.system == 'ubuntu-latest'
