@@ -5,7 +5,7 @@ author_info:
   username: libre-embedded
 
 # Use the same versions and systems that vmklib uses.
-versions: ["3.12", "3.13"]
+versions: ["3.13", "3.14"]
 systems:
   - macos-latest
   - windows-latest
