@@ -4,6 +4,7 @@ A module for project documentation tasks.
 
 # built-in
 from pathlib import Path
+from shutil import copyfile, copytree, rmtree
 
 # third-party
 from vcorelib.paths import find_file
@@ -25,11 +26,18 @@ class SphinxTask(SubprocessLogMixin):
         "python-editable",
     }
 
-    async def run(self, inbox: Inbox, outbox: Outbox, *args, **kwargs) -> bool:
+    async def run(  # pylint: disable=too-many-locals
+        self,
+        inbox: Inbox,
+        outbox: Outbox,
+        *args,
+        **kwargs,
+    ) -> bool:
         """Generate ninja configuration files."""
 
         cwd: Path = args[0]
         project: str = args[1]
+        slug = project.replace("-", "_")
 
         venv_bin = inbox["venv"]["venv{python_version}"]["bin"]
 
@@ -47,12 +55,14 @@ class SphinxTask(SubprocessLogMixin):
         if metadata:
             metadata_args.extend(["-V", metadata])
 
+        docs_base = cwd.joinpath("docs")
+
         # Generate sources with apidoc.
         result = await self.shell_cmd_in_dir(
-            cwd.joinpath("docs"),
+            docs_base,
             [
                 str(venv_bin.joinpath("sphinx-apidoc")),
-                str(Path("..", project.replace("-", "_"))),
+                str(Path("..", slug)),
                 "-t",
                 str(templates),
             ]
@@ -63,7 +73,7 @@ class SphinxTask(SubprocessLogMixin):
         # Build.
         if result:
             result = await self.shell_cmd_in_dir(
-                cwd.joinpath("docs"),
+                docs_base,
                 [
                     str(venv_bin.joinpath("sphinx-build")),
                     "-W",
@@ -71,5 +81,17 @@ class SphinxTask(SubprocessLogMixin):
                     "_build",
                 ],
             )
+
+        # Publish (to package).
+        if result:
+            dest_dir = cwd.joinpath(slug, "data", "docs")
+            rmtree(dest_dir, ignore_errors=True)
+            dest_dir.mkdir()
+
+            for item in docs_base.joinpath("_build").iterdir():
+                if item.name in {"_modules", "_static"}:
+                    copytree(item, dest_dir.joinpath(item.name))
+                elif item.suffix in {".html", ".js"}:
+                    copyfile(item, dest_dir.joinpath(item.name))
 
         return result
