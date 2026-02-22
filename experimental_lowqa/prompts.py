@@ -7,10 +7,12 @@ import asyncio
 import functools
 from typing import Dict, Iterable, NamedTuple, Optional
 
+DEFAULT_PROMPT = "selection? "
+
 
 def select_option(
     options: Iterable[str],
-    prompt: str = "selection? ",
+    prompt: str = DEFAULT_PROMPT,
     print_options: bool = False,
 ) -> Optional[int]:
     """
@@ -49,6 +51,7 @@ class SelectOpts(NamedTuple):
     allow_prompt: bool = True
     custom_option: bool = False
     descriptions: Optional[Dict[str, str]] = None
+    prompt: str = DEFAULT_PROMPT
 
 
 def boolean_select(label: str, **kwargs) -> bool:
@@ -73,9 +76,7 @@ async def async_manual_select(
 
 
 def manual_select(
-    label: str,
-    options: Iterable[str],
-    **kwargs,
+    label: str, options: Iterable[str], **kwargs
 ) -> Optional[str]:
     """
     Prompt the user until an option from the provided set of options is chosen.
@@ -114,7 +115,7 @@ def manual_select(
     if not opts.allow_prompt:
         print(f"not prompting and '{opts.default}' not in options")
     else:
-        selection = select_option(options)
+        selection = select_option(options, prompt=opts.prompt)
 
     if selection is None or selection < 0:
         return None

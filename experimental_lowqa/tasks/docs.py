@@ -42,6 +42,11 @@ class SphinxTask(SubprocessLogMixin):
         )
         assert templates is not None
 
+        metadata_args = ["-A", f"\"{kwargs.get('author', 'Libre Embedded')}\""]
+        metadata = kwargs.get("version")
+        if metadata:
+            metadata_args.extend(["-V", metadata])
+
         # Generate sources with apidoc.
         result = await self.shell_cmd_in_dir(
             cwd.joinpath("docs"),
@@ -50,13 +55,9 @@ class SphinxTask(SubprocessLogMixin):
                 str(Path("..", project.replace("-", "_"))),
                 "-t",
                 str(templates),
-                "-A",
-                f"\"{kwargs.get('author', 'Libre Embedded')}\"",
-                "-f",
-                "-F",
-                "-o",
-                ".",
-            ],
+            ]
+            + metadata_args
+            + ["-f", "-F", "-o", "."],
         )
 
         # Build.
