@@ -95,7 +95,7 @@ class SphinxTask(SubprocessLogMixin):
             dest_dir.mkdir()
 
             for item in docs_base.joinpath("_build").iterdir():
-                if item.name in {"_modules", "_static"}:
+                if item.name in {"_modules", "_static", "_images"}:
                     copytree(item, dest_dir.joinpath(item.name))
                 elif item.suffix in {".html", ".js"}:
                     copyfile(item, dest_dir.joinpath(item.name))
