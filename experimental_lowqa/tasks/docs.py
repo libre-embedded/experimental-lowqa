@@ -76,8 +76,9 @@ class SphinxTask(SubprocessLogMixin):
         if result:
             # README dependencies.
             for subdir in ["im", "md"]:
-                rmtree(docs_base.joinpath(subdir), ignore_errors=True)
-                copytree(cwd.joinpath(subdir), docs_base.joinpath(subdir))
+                if cwd.joinpath(subdir).is_dir():
+                    rmtree(docs_base.joinpath(subdir), ignore_errors=True)
+                    copytree(cwd.joinpath(subdir), docs_base.joinpath(subdir))
 
             result = await self.shell_cmd_in_dir(
                 docs_base,
