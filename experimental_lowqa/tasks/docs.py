@@ -92,7 +92,7 @@ class SphinxTask(SubprocessLogMixin):
         if result:
             dest_dir = cwd.joinpath(slug, "data", "docs")
             rmtree(dest_dir, ignore_errors=True)
-            dest_dir.mkdir()
+            dest_dir.mkdir(parents=True)
 
             for item in docs_base.joinpath("_build").iterdir():
                 if item.name in {"_modules", "_static", "_images"}:
