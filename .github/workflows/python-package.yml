@@ -39,12 +39,12 @@ jobs:
           cache: pip
 
       - run: pip${{matrix.python-version}} install -e .
-      - run: pip${{matrix.python-version}} install vmklib>=2.0.11
+      - run: pip${{matrix.python-version}} install vmklib>=2.0.12
       - run: mk python-editable
 
       - run: mk python-sa-types
 
-      - run: mk docs version=0.2.2
+      - run: mk docs version=0.2.3
         if: |
           matrix.python-version == '3.14'
           && matrix.system == 'ubuntu-latest'
@@ -76,7 +76,7 @@ jobs:
 
       - run: |
           mk python-release owner=libre-embedded \
-                            repo=experimental-lowqa version=0.2.2
+                            repo=experimental-lowqa version=0.2.3
         if: |
           matrix.python-version == '3.14'
           && matrix.system == 'ubuntu-latest'

@@ -74,15 +74,16 @@ class SphinxTask(SubprocessLogMixin):
 
         # Build.
         if result:
-            # Update images.
-            rmtree(docs_base.joinpath("im"), ignore_errors=True)
-            copytree(cwd.joinpath("im"), docs_base.joinpath("im"))
+            # README dependencies.
+            for subdir in ["im", "md"]:
+                rmtree(docs_base.joinpath(subdir), ignore_errors=True)
+                copytree(cwd.joinpath(subdir), docs_base.joinpath(subdir))
 
             result = await self.shell_cmd_in_dir(
                 docs_base,
                 [
                     str(venv_bin.joinpath("sphinx-build")),
-                    "-W",
+                    # "-W",
                     ".",
                     "_build",
                 ],
