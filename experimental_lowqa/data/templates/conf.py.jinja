@@ -30,6 +30,7 @@ release = {{ release | repr }}
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [{% if extensions %}
+    'myst_parser',
 {%- for ext in extensions %}
     '{{ ext }}',
 {%- endfor %}

@@ -21,8 +21,10 @@ class SphinxTask(SubprocessLogMixin):
 
     default_requirements = {
         "venv",
+        "python-deps",
         "python-install-sphinx",
         "python-install-sphinx-book-theme",
+        "python-install-myst-parser",
         "python-editable",
     }
 
@@ -72,6 +74,10 @@ class SphinxTask(SubprocessLogMixin):
 
         # Build.
         if result:
+            # Update images.
+            rmtree(docs_base.joinpath("im"), ignore_errors=True)
+            copytree(cwd.joinpath("im"), docs_base.joinpath("im"))
+
             result = await self.shell_cmd_in_dir(
                 docs_base,
                 [
